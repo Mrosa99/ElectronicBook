@@ -99,7 +99,7 @@ public class BookStore extends MainFrames {
                         author = Connect.resultset.getString("Author");
                         year = Connect.resultset.getString("Published");
                         price = Connect.resultset.getString("Price");
-                        String bookImg = "app/src/main/resources/images/" + bookID + ".jpeg";
+                        String bookImg = "app/src/main/java/main/src/images/" + bookID + ".jpeg";
                         book = new ImageIcon(bookImg);
                         Image image = book.getImage();
                         Image newImage = image.getScaledInstance(250, 300, java.awt.Image.SCALE_SMOOTH);

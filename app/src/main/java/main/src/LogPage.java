@@ -18,7 +18,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class LogPage implements ActionListener {
-	java.net.URL url = ClassLoader.getSystemResource("ElectronicBook/app/src/main/resources/images/EIcon.jpg");
+	java.net.URL url = ClassLoader.getSystemResource("app/src/main/java/main/src/images/EIcon.jpg");
 
 	/** Frame and layout panels for the login frame */
 	protected static JFrame LoginFrame;
@@ -39,7 +39,7 @@ public class LogPage implements ActionListener {
 	protected JButton reset;
 
 	static Font myFont = new Font("Times New Roman", Font.BOLD, 25); // Font for text and button text.
-	static ImageIcon EIcon = new ImageIcon("app/src/main/resources/images/EIcon.jpg");
+	static ImageIcon EIcon = new ImageIcon("app/src/main/java/main/src/images/EIcon.jpg");
 	
 
 	void LoginPage() {
