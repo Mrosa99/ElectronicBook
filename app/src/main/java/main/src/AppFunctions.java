@@ -124,7 +124,7 @@ public class AppFunctions extends LogPage {
             if (Connect.resultset.next()) {
                 tmpBooks[i] = Connect.resultset.getString("Title");
                 bookID = Connect.resultset.getString("BookID");
-                String bookImg = "EBook/ebook/src/images/" + bookID + ".jpeg";
+                String bookImg = "app/src/main/resources/images/" + bookID + ".jpeg";
                 book = new ImageIcon(bookImg);
                 Image image = book.getImage();
                 Image newImage = image.getScaledInstance(150, 162, java.awt.Image.SCALE_SMOOTH);
@@ -150,7 +150,7 @@ public class AppFunctions extends LogPage {
             if (Connect.resultset.next()) {
                 tmpBooks[i] = Connect.resultset.getString("Title");
                 bookID = Connect.resultset.getString("BookID");
-                String bookImg = "EBook/ebook/src/images/" + bookID + ".jpeg";
+                String bookImg = "app/src/main/resources/images/" + bookID + ".jpeg";
                 book = new ImageIcon(bookImg);
                 Image image = book.getImage();
                 Image newImage = image.getScaledInstance(150, 162, java.awt.Image.SCALE_SMOOTH);
