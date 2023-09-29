@@ -12,6 +12,5 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
     </properties>
-    <classpathentry kind="lib" path="/Users/miltonrosa/Documents/GitHub/ElectronicBook/app/src/main/java/main/src/Main.java" />
-
+   
 </project>
