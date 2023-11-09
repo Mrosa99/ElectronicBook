@@ -136,6 +136,10 @@ public class AppFunctions extends LogPage {
         }
     }
 
+    /**
+     * 
+     * 
+     */
     void getOwnedTitles(int count, int pgmax, JButton[] buttons, String[] tmpBooks, String bookID) throws SQLException {
         for (int i = 0; i < buttons.length; i++) {
             tmpBooks[i] = " ";
@@ -161,6 +165,11 @@ public class AppFunctions extends LogPage {
         }
     }
 
+
+/**
+ * 
+ * 
+ */
     void getLink() {
         try {
             String ownedQuery = "SELECT  FROM Library INNER JOIN Orders ON Orders.BookID = Library.BookID WHERE UserID = ? LIMIT ?,?";
@@ -171,6 +180,10 @@ public class AppFunctions extends LogPage {
         }
     }
 
+/**
+ * 
+ *
+ */
     void firstSet(JButton[] buttons1, JButton[] buttons2) {
         buttons1[0] = new JButton("Back");
         buttons1[1] = new JButton("Main Menu");
@@ -180,6 +193,10 @@ public class AppFunctions extends LogPage {
         setStyle(buttons2);
     }
 
+    /**
+     * 
+     *
+     */
     public String change(String change, String current, JLabel text, JLabel msg, String word) throws SQLException {
         try {
             Connect.query = "Select UserID from Users where binary " + word + "=?";
@@ -212,12 +229,21 @@ public class AppFunctions extends LogPage {
         return current;
     }
 
+
+    /**
+     * 
+
+     */
     void removeAction(JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i].removeActionListener(this);
         }
     }
 
+    /**
+     * 
+     *
+     */
     void addAction(JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i].addActionListener(this);
