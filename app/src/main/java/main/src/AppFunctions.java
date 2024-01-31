@@ -55,7 +55,8 @@ public class AppFunctions extends LogPage {
                 buttons[i].setOpaque(false);
                 buttons[i].setContentAreaFilled(false);
                 buttons[i].setBorderPainted(false);
-                buttons[i].setIcon(null);;
+                buttons[i].setIcon(null);
+                ;
             }
         }
     }
@@ -138,7 +139,14 @@ public class AppFunctions extends LogPage {
 
     /**
      * 
+     * Gets the titles owned by the user in the database
      * 
+     * @param counnt
+     * @param pgmax
+     * @param buttons
+     * @param tmpBooks
+     * @param bookID
+     * @throws SQLException
      */
     void getOwnedTitles(int count, int pgmax, JButton[] buttons, String[] tmpBooks, String bookID) throws SQLException {
         for (int i = 0; i < buttons.length; i++) {
@@ -165,11 +173,11 @@ public class AppFunctions extends LogPage {
         }
     }
 
-
-/**
- * 
- * 
- */
+    /**
+     * 
+     * Gets the online url link to a selected title
+     * 
+     */
     void getLink() {
         try {
             String ownedQuery = "SELECT  FROM Library INNER JOIN Orders ON Orders.BookID = Library.BookID WHERE UserID = ? LIMIT ?,?";
@@ -180,10 +188,14 @@ public class AppFunctions extends LogPage {
         }
     }
 
-/**
- * 
- *
- */
+    /**
+     * 
+     * Sets the main navigation buttons for the application.
+     * 
+     * @param buttons1
+     * @param buttons2
+     *
+     */
     void firstSet(JButton[] buttons1, JButton[] buttons2) {
         buttons1[0] = new JButton("Back");
         buttons1[1] = new JButton("Main Menu");
@@ -195,7 +207,16 @@ public class AppFunctions extends LogPage {
 
     /**
      * 
-     *
+     * Method to change password/username while checking for same string, blank
+     * inputs, and if username exists in database already
+     * 
+     * @param change
+     * @param current
+     * @param text
+     * @param msg
+     * @param word
+     * @throws SQLException
+     * 
      */
     public String change(String change, String current, JLabel text, JLabel msg, String word) throws SQLException {
         try {
@@ -229,10 +250,11 @@ public class AppFunctions extends LogPage {
         return current;
     }
 
-
     /**
+     *
+     * Removes the action listener to a button in the application.
      * 
-
+     * @param buttons
      */
     void removeAction(JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
@@ -242,6 +264,9 @@ public class AppFunctions extends LogPage {
 
     /**
      * 
+     * Adds the action listener to a button in the application
+     * 
+     * @param buttons
      *
      */
     void addAction(JButton[] buttons) {
