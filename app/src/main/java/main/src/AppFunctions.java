@@ -91,10 +91,11 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * 
-     * Sets the Button with no text
-     * 
-     * @param button
+     * Initializes an array of JButton components with no text.
+     * Each button in the array is created as a new JButton instance without any
+     * text.
+     *
+     * @param buttons An array of JButton components to be initialized.
      */
     void setButtons(JButton[] button) {
         for (int i = 0; i < button.length; i++) {
@@ -103,11 +104,14 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * 
-     * Removes JButtons from a given JPanel.
-     * 
-     * @param panel
-     * @param Added_Buttons
+     * Removes an array of JButton components from a specified JPanel.
+     * Each button in the array is removed from the panel, and the panel is
+     * repainted
+     * to reflect the changes in the user interface.
+     *
+     * @param panel        The JPanel from which buttons will be removed.
+     * @param addedButtons An array of JButton components to be removed from the
+     *                     panel.
      */
     void removeButtons(JPanel panel, JButton[] Added_Buttons) {
         for (int i = 0; i < Added_Buttons.length; i++) {
