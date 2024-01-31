@@ -292,10 +292,15 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     *
-     * Removes the action listener to a button in the application.
+     * Removes the ActionListener from JButton objects in the provided array.
      * 
-     * @param buttons
+     * This method removes the ActionListener, attached to the current instance of
+     * the class,
+     * from each JButton in the specified array, effectively disabling the button's
+     * action response.
+     * 
+     * @param buttons An array of JButton objects from which the ActionListener will
+     *                be removed.
      */
     void removeAction(JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
@@ -304,11 +309,15 @@ public class AppFunctions extends LogPage {
     }
 
     /**
+     * Adds an ActionListener to JButton objects in the provided array.
      * 
-     * Adds the action listener to a button in the application
+     * This method attaches the ActionListener, associated with the current instance
+     * of the class,
+     * to each JButton in the specified array, enabling the buttons to respond to
+     * user actions.
      * 
-     * @param buttons
-     *
+     * @param buttons An array of JButton objects to which the ActionListener will
+     *                be added.
      */
     void addAction(JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
