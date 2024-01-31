@@ -222,12 +222,17 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * 
-     * Sets the main navigation buttons for the application.
-     * 
-     * @param buttons1
-     * @param buttons2
+     * Initializes and sets the main navigation buttons for the application.
+     * Configures two arrays of JButton components, where the first array (buttons1)
+     * contains "Back," "Main Menu," and "Next" buttons, and the second array
+     * (buttons2)
+     * is populated with default initialized buttons. Styling for both arrays is set
+     * using the helper method setStyle().
      *
+     * @param buttons1 An array of JButton components representing primary
+     *                 navigation buttons.
+     * @param buttons2 An array of JButton components to be initialized for further
+     *                 use.
      */
     void firstSet(JButton[] buttons1, JButton[] buttons2) {
         buttons1[0] = new JButton("Back");
