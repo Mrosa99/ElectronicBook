@@ -14,10 +14,14 @@ public class AppFunctions extends LogPage {
     static ImageIcon book;
 
     /**
-     * Sets the general style of a button by adding ActionListener, set Font,
-     * setFocusable, and the background color.
+     * Sets a consistent style for an array of JButton objects.
      * 
-     * @param Buttons
+     * This method configures each JButton in the provided array with common
+     * stylistic attributes
+     * to ensure a cohesive appearance and behavior throughout the user interface.
+     * 
+     * @param buttons An array of JButton objects to be styled.
+     * 
      */
     void setStyle(JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
