@@ -48,11 +48,12 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * Checks to see if JButton text is empty(" "), if it is, it will remove
-     * ActionListener and make button "invsible". The button will not be visible in
-     * the frame.
-     * 
-     * @param buttons
+     * Checks and processes an array of JButton components to identify and handle
+     * buttons with an empty text value (" "). If a button is found to be empty,
+     * it removes the ActionListener, sets its appearance to be transparent, and
+     * removes any existing icon.
+     *
+     * @param buttons An array of JButton components to be checked for emptiness.
      */
     void isEmpty(JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
