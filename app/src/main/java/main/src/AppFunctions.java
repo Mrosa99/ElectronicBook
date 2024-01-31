@@ -162,15 +162,20 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * 
-     * Gets the titles owned by the user in the database
-     * 
-     * @param counnt
-     * @param pgmax
-     * @param buttons
-     * @param tmpBooks
-     * @param bookID
-     * @throws SQLException
+     * Retrieves and displays book titles owned by the user from the database.
+     * Utilizes the given count and pgmax parameters for pagination.
+     *
+     * @param count    The starting index for retrieving owned book titles.
+     * @param pgmax    The maximum number of owned book titles to retrieve in a
+     *                 single page.
+     * @param buttons  An array of JButton components representing owned book
+     *                 titles.
+     * @param tmpBooks An array to temporarily store owned book titles retrieved
+     *                 from the database.
+     * @param bookID   A variable to store the BookID of the currently processed
+     *                 owned book.
+     * @throws SQLException If a database access error occurs or the SQL execution
+     *                      fails.
      */
     void getOwnedTitles(int count, int pgmax, JButton[] buttons, String[] tmpBooks, String bookID) throws SQLException {
         for (int i = 0; i < buttons.length; i++) {
