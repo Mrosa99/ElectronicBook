@@ -69,9 +69,15 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * Resets empty buttons to original style.
+     * Resets specific stylistic attributes for JButton objects with empty text.
      * 
-     * @param buttons
+     * This method selectively resets stylistic attributes, such as ActionListener
+     * attachment,
+     * background opacity, content area fill, and border painting, for JButton
+     * objects in the
+     * provided array that have an empty text.
+     * 
+     * @param buttons An array of JButton objects to be reset.
      */
     void reset(JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
