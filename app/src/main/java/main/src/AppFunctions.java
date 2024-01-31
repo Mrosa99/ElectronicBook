@@ -174,9 +174,13 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * 
-     * Gets the online url link to a selected title
-     * 
+     * Retrieves relevant data from the database based on the provided user ID.
+     * The method constructs a parameterized SQL query involving an INNER JOIN
+     * between the 'Library' and 'Orders' tables, filtering results by user ID
+     * and utilizing a LIMIT clause for pagination.
+     *
+     * @throws SQLException if a database access error occurs or the SQL execution
+     *                      fails.
      */
     void getLink() {
         try {
