@@ -33,10 +33,12 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * Adds the Jbutton array into the a panel
-     * 
-     * @param panel
-     * @param buttons
+     * Adds an array of JButton components to a JPanel. This method iterates through
+     * the provided array of buttons and adds each button to the specified JPanel.
+     * After adding each button, the panel is repainted to reflect the changes.
+     *
+     * @param panel   The JPanel to which the buttons will be added.
+     * @param buttons An array of JButton components to be added to the panel.
      */
     void addButton(JPanel panel, JButton[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
