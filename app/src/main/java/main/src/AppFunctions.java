@@ -121,15 +121,22 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * 
-     * Gets and sets the buttons for the BookStore and the Library. Uses count and
-     * pgmax to switch through each page
-     * 
-     * @param count
-     * @param pgmax
-     * @param buttons
-     * @param tmpBooks
-     * @throws SQLException
+     * Retrieves and sets information for buttons representing available book titles
+     * in the BookStore or Library.
+     * Utilizes the given count and pgmax parameters to navigate through pages of
+     * results.
+     *
+     * @param count    The starting index for retrieving book titles from the
+     *                 database.
+     * @param pgmax    The maximum number of book titles to retrieve in a single
+     *                 page.
+     * @param buttons  An array of JButton components representing book titles.
+     * @param tmpBooks An array to temporarily store book titles retrieved from the
+     *                 database.
+     * @param bookID   A variable to store the BookID of the currently processed
+     *                 book.
+     * @throws SQLException If a database access error occurs or the SQL execution
+     *                      fails.
      */
     void getAvailableTitles(int count, int pgmax, JButton[] buttons, String[] tmpBooks, String bookID)
             throws SQLException {
