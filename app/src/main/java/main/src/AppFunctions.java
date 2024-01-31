@@ -244,17 +244,20 @@ public class AppFunctions extends LogPage {
     }
 
     /**
-     * 
-     * Method to change password/username while checking for same string, blank
-     * inputs, and if username exists in database already
-     * 
-     * @param change
-     * @param current
-     * @param text
-     * @param msg
-     * @param word
-     * @throws SQLException
-     * 
+     * Changes the user password or username while performing checks for identical
+     * input,
+     * blank entries, and existing username in the database.
+     *
+     * @param change  The new password or username to be set.
+     * @param current The current password or username for verification.
+     * @param text    JLabel to display additional text information.
+     * @param msg     JLabel to display messages related to the change operation.
+     * @param word    A string indicating whether the change is for the password or
+     *                username.
+     * @return The updated current password or username after a successful change
+     *         operation.
+     * @throws SQLException If a database access error occurs or the SQL execution
+     *                      fails.
      */
     public String change(String change, String current, JLabel text, JLabel msg, String word) throws SQLException {
         try {
