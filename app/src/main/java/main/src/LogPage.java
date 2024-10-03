@@ -40,7 +40,6 @@ public class LogPage implements ActionListener {
 
 	static Font myFont = new Font("Times New Roman", Font.BOLD, 25); // Font for text and button text.
 	static ImageIcon EIcon = new ImageIcon("app/src/main/java/main/src/images/EIcon.jpg");
-	
 
 	void LoginPage() {
 
@@ -72,7 +71,7 @@ public class LogPage implements ActionListener {
 		tmpPass.setPreferredSize(new Dimension(250, 40));
 		tmpPass.setEchoChar('*');
 
-		//Labels
+		// Labels
 		JLabel user = new JLabel();
 		user.setText("Username:");
 		JLabel pass = new JLabel();

@@ -24,9 +24,6 @@ INSERT INTO users (username, password) VALUES
 ('ivan9', SHA2('pinkFlower33!', 256)),
 ('judy10', SHA2('grayWolf76$', 256));
 
-
-
-
 SHOW TABLES;
 
 
