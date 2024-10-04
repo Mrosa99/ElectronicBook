@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class MainFrames extends AppFunctions {
     static JFrame MainFrame; // Main Frame
     static JFrame popoutFrame; // Main popout Frame
@@ -53,8 +52,6 @@ public class MainFrames extends AppFunctions {
 
     void MainAppFrames() {
 
-    
-        
         // Main Buttons
         MainMenu_Buttons[0] = new JButton("Library");
         MainMenu_Buttons[1] = new JButton("Book Store");
@@ -182,7 +179,6 @@ public class MainFrames extends AppFunctions {
             }
 
         } else if (e.getSource() == MainMenu_Buttons[1]) {
-
             Center_Panel.removeAll();
             BookStore bookStore = new BookStore();
             try {

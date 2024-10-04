@@ -213,7 +213,7 @@ public class AppFunctions extends LogPage {
      */
     void getLink() {
         try {
-            String ownedQuery = "SELECT  FROM Library INNER JOIN Orders ON Orders.BookID = Library.BookID WHERE UserID = ? LIMIT ?,?";
+            String ownedQuery = "SELECT FROM Library INNER JOIN Orders ON Orders.BookID = Library.BookID WHERE UserID = ? LIMIT ?,?";
             Connect.statement = Connect.c.prepareStatement(ownedQuery);
             Connect.statement.setString(1, userID);
         } catch (Exception e1) {
