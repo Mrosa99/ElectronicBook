@@ -1,19 +1,30 @@
-DROP TABLE library; 
+USE DATABASE ebook;
 
 CREATE TABLE IF NOT EXISTS users (
     userID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(50) NOT NULL,
+    username VARCHAR(64) NOT NULL,
     password VARCHAR(64) NOT NULL
 ) AUTO_INCREMENT = 2001;
 
 CREATE TABLE IF NOT EXISTS library (
     bookID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(50) NOT NULL,
+    title VARCHAR(100) NOT NULL,
     author VARCHAR(50) NOT NULL,
-    published INT(4) NOT NULL,
-    price INT(4) NOT NULL,
-    link VARCHAR(100) NOT NULL
+    published YEAR NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    link VARCHAR(255) NOT NULL
 ) AUTO_INCREMENT = 1001;
+
+CREATE TABLE IF NOT EXISTS orders (
+    orderID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    userID INT NOT NULL,
+    bookID INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    purchaseDate DATE NOT NULL,
+    FOREIGN KEY (userID) REFERENCES users(userID),
+    FOREIGN KEY (bookID) REFERENCES library(bookID),
+    FOREIGN KEY (price) REFERENCES library(price)
+) AUTO_INCREMENT = 3001;
 
 INSERT INTO users (username, password) VALUES
 ('alice1', SHA2('blueSky42!', 256)),
@@ -66,10 +77,6 @@ INSERT INTO library (title, author, published, price, link) VALUES
 ('The Call of the Wild', 'Jack London', '1903', '11.99', 'https://www.gutenberg.org/cache/epub/215/pg215-images.html');
 
 
-
-
-
-SHOW TABLES;
 
 
 

@@ -1,27 +1,43 @@
-# ElectronicBook
- Electronic Book Application
+# E-Book App
 
--Prerequisites
+## Overview
 
-Before you can run the application, ensure that you have the following prerequisites installed on your system:
+The E-Book App is a user-friendly platform designed for book enthusiasts to browse, purchase, and manage their digital book collections. This application serves as a personal project aimed at honing my skills in software development. Users can create accounts, browse library catalog, view detailed information, and place orders seamlessly. The app is built on a structured database that efficiently stores user credentials, book information, and order history.
 
-1.Java Development Kit (JDK): You need to have a JDK (version 8 or higher) installed on your system. You can download and install the JDK from the Oracle website or use OpenJDK.
-2.Git: You need Git installed on your system to clone this repository. You can download Git from the official Git website.
+## Features
 
+- **User Registration and Authentication**: Secure user accounts with username and hashed password storage.
+- **Library Management**: A comprehensive collection of books with details including title, author, publication year, price, and direct links for access.
+- **Order Placement**: Users can purchase books, with order details recorded for future reference.
+- **Data Security**: Passwords are stored using SHA-256 hashing for enhanced security.
 
--Clone the Repository
+## Technologies Used
 
-To get started, clone this repository to your local machine using the following Git command:
+- **Database**: MySQL for storing user, book, and order data.
+- **Programming Language**: Java for backend logic and application functionality.
+- **Framework**: JFRAME for the app's user interface and experience.
 
-git clone https://github.com/Mrosa99/ElectronicBook.git
+## Getting Started
 
+To get started with the E-Book App, follow these steps:
 
+1. **Clone the Repository**
 
--Compile and Run the Application
+   - Download the project files from the repository.
 
-Once you are inside the project directory, you can compile and run the Java application by following these steps:
+2. **Set Up the Database:**
 
-Compile and run the java application using the 'AppMain.java' file which includes the main.
+   - Import the provided MySQL scripts into your database management system to create the necessary tables and populate them with sample data.
+   - For more step by step instructions follow this link: https://www.youtube.com/watch?v=u96rVINbAUI&ab_channel=WebDevSimplified (WorkBench not required)
+   - For written steps go to the "How to install MySQL" section below.
 
-The application will successfully run in java frame.
+3. **Configure Database Connection:**
 
+   - Update the database connection settings in the application configuration file to match your local setup.
+
+4. **Run the Application:**
+
+   - Use your IDE or command line to run the application(AppMain.java). Maven will handle the build process automatically.
+
+5. **Access the App:**
+   - Use one of the sample user data or create your own account to log in and browse the application.
