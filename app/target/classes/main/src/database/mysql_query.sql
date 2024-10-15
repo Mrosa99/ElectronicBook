@@ -22,9 +22,10 @@ CREATE TABLE IF NOT EXISTS orders (
     userID INT NOT NULL,
     bookID INT NOT NULL,
     purchaseDate DATE NOT NULL,
-    FOREIGN KEY (userID) REFERENCES users(userID),
+    FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE,
     FOREIGN KEY (bookID) REFERENCES library(bookID)
 ) AUTO_INCREMENT = 3001;
+
 
 INSERT INTO users (username, password) VALUES
 ('alice1', SHA2('blueSky42!', 256)),

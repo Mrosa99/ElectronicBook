@@ -153,7 +153,7 @@ public class Settings extends MainFrames {
 
     void deleteUser() throws SQLException {
         settingsText.setText("Account Deleted");
-        Connect.query = "DELETE FROM `Users` WHERE `Users`.`UserID` = ?";
+        Connect.query = "DELETE FROM users WHERE users.userID = ?";
         Connect.statement = Connect.c.prepareStatement(Connect.query);
         Connect.statement.setString(1, userID);
         Connect.statement.executeUpdate();
@@ -171,12 +171,12 @@ public class Settings extends MainFrames {
             addButton(Center_Panel, MainMenu_Buttons);
 
         } else if (e.getSource() == Settings_Buttons[0]) {
-             removeAction(main);
+            removeAction(main);
             removeAction(Settings_Buttons);
             confirmButtons();
             confirmFrame.setTitle("Username Change");
         } else if (e.getSource() == Settings_Buttons[1]) {
-             removeAction(main);
+            removeAction(main);
             removeAction(Settings_Buttons);
             confirmButtons();
             confirmFrame.setTitle("Password Change");
