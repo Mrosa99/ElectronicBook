@@ -50,4 +50,4 @@ To get started with the E-Book App, follow these steps:
 5. **Access the App:**
    - Use one of the sample user data or create your own account to log in and browse the application.
 
-![Database ERD](app/src/main/java/main/src/images/ERD.pdf)
+![Database ERD](app/src/main/java/main/src/images/ERD.jpeg)
