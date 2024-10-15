@@ -104,7 +104,7 @@ public class BookDets extends BookStore {
             popoutFrame.dispose();
         } else if (e.getSource() == popButtons[1]) {
             try {
-                String checkPurchase = "Select * from Orders where userID = '" + userID + "' and BookID = '" + bookID
+                String checkPurchase = "Select * from orders where userID = '" + userID + "' and bookID = '" + bookID
                         + "'";
                 Connect.statement = Connect.c.prepareStatement(checkPurchase);
                 Connect.resultset = Connect.statement.executeQuery(checkPurchase);

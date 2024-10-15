@@ -143,12 +143,12 @@ public class AppFunctions extends LogPage {
         for (int i = 0; i < buttons.length; i++) {
             tmpBooks[i] = " ";
         }
-        String LibQuery = "SELECT * FROM Library limit " + count + "," + pgmax + "";
+        String LibQuery = "SELECT * FROM library limit " + count + "," + pgmax + "";
         Connect.resultset = Connect.statement.executeQuery(LibQuery);
         for (int i = 0; i < buttons.length; i++, count++) {
             if (Connect.resultset.next()) {
-                tmpBooks[i] = Connect.resultset.getString("Title");
-                bookID = Connect.resultset.getString("BookID");
+                tmpBooks[i] = Connect.resultset.getString("title");
+                bookID = Connect.resultset.getString("bookID");
                 String bookImg = "app/src/main/java/main/src/images/" + bookID + ".jpeg";
                 book = new ImageIcon(bookImg);
                 Image image = book.getImage();
