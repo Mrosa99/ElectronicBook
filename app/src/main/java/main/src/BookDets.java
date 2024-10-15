@@ -116,7 +116,7 @@ public class BookDets extends BookStore {
                     popBPanel.add(close);
                 } else {
                     java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
-                    String purchase_query = "INSERT INTO Orders(bookID, userID, purchaseDate) VALUES (?, ?, ?)";
+                    String purchase_query = "INSERT INTO orders(bookID, userID, purchaseDate) VALUES (?, ?, ?)";
                     Connect.statement = Connect.c.prepareStatement(purchase_query);
                     Connect.statement.setString(1, bookID);
                     Connect.statement.setString(2, userID);
