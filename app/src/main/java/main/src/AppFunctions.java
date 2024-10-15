@@ -261,7 +261,7 @@ public class AppFunctions extends LogPage {
      */
     public String change(String change, String current, JLabel text, JLabel msg, String word) throws SQLException {
         try {
-            Connect.query = "Select UserID from Users where binary " + word + "=?";
+            Connect.query = "Select userID from users where binary " + word + "=?";
             Connect.statement = Connect.c.prepareStatement(Connect.query);
             Connect.statement.setString(1, change);
             Connect.resultset = Connect.statement.executeQuery();
@@ -277,13 +277,27 @@ public class AppFunctions extends LogPage {
                     text.setText("Please try again:");
                 }
             } else {
-                Connect.query = "UPDATE Users SET " + word + " = '" + change + "' WHERE " + word + "= '" + current
-                        + "'";
-                Connect.statement = Connect.c.prepareStatement(Connect.query);
-                Connect.statement.executeUpdate();
-                msg.setText(word + " Changed");
-                text.setText("<HTML><CENTER>Username successfully changed to: <BR>" + change + "<CENTER><HTML>");
-                current = change;
+                if (word == "Username") {
+                    Connect.query = "UPDATE users SET " + word + " = '" + change + "' WHERE " + word + "= '" + current
+                            + "'";
+                    Connect.statement = Connect.c.prepareStatement(Connect.query);
+                    Connect.statement.executeUpdate();
+                    msg.setText(word + " Changed");
+                    text.setText("<HTML><CENTER>Username successfully changed to: <BR>" + change + "<CENTER><HTML>");
+                    current = change;
+                }
+                if (word == "Password") {
+                    Connect.query = "UPDATE users SET " + word + " = SHA2('" + change + "',256) WHERE " + word
+                            + " = SHA2('"
+                            + current
+                            + "',256)";
+                    System.out.println(Connect.query);
+                    Connect.statement = Connect.c.prepareStatement(Connect.query);
+                    Connect.statement.executeUpdate();
+                    msg.setText(word + " Changed");
+                    text.setText("<HTML><CENTER>Username successfully changed to: <BR>" + change + "<CENTER><HTML>");
+                    current = change;
+                }
             }
         } catch (SQLException e1) {
             e1.printStackTrace();
