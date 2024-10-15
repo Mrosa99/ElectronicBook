@@ -71,12 +71,12 @@ public class Library extends MainFrames {
 	}
 
 	void getLibCount() throws SQLException {
-		String maxquery = "select COUNT(*) from Orders Where userID ='" + userID + "'";
+		String maxquery = "SELECT COUNT(*) from orders WHERE userID ='" + userID + "'";
 		Connect.resultset = Connect.statement.executeQuery(maxquery);
 		if (Connect.resultset.next()) {
 			max = Connect.resultset.getInt(1);
 		}
-		getOwnedTitles(count = 0, pgmax = 10, Purchased_Books, tempBooks,bookID);
+		getOwnedTitles(count = 0, pgmax = 10, Purchased_Books, tempBooks, bookID);
 		isEmpty(Purchased_Books);
 		LibraryFrame();
 	}
@@ -91,7 +91,7 @@ public class Library extends MainFrames {
 			} else {
 				reset(Purchased_Books);
 				try {
-					getOwnedTitles(count -= 10, pgmax -= 10, Purchased_Books, tempBooks,bookID);
+					getOwnedTitles(count -= 10, pgmax -= 10, Purchased_Books, tempBooks, bookID);
 					isEmpty(Purchased_Books);
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -111,7 +111,7 @@ public class Library extends MainFrames {
 				PDirectional[2].addActionListener(this);
 			} else {
 				try {
-					getOwnedTitles(count += 10, pgmax += 10, Purchased_Books, tempBooks,bookID);
+					getOwnedTitles(count += 10, pgmax += 10, Purchased_Books, tempBooks, bookID);
 					isEmpty(Purchased_Books);
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -123,16 +123,16 @@ public class Library extends MainFrames {
 				removeButtons(Center_Panel, Purchased_Books);
 				removeButtons(Bottom_Panel, PDirectional);
 				try {
-					Connect.query = "select * from Library where Title = ?";
+					Connect.query = "SELECT * from library where title = ?";
 					Connect.statement = Connect.c.prepareStatement(Connect.query);
 					Connect.statement.setString(1, Purchased_Books[i].getText());
 					Connect.resultset = Connect.statement.executeQuery();
 					if (Connect.resultset.next()) {
-						bookID = Connect.resultset.getString("BookID");
-						title = Connect.resultset.getString("Title");
-						author = Connect.resultset.getString("Author");
-						year = Connect.resultset.getString("Published");
-						link = Connect.resultset.getString("Link");
+						bookID = Connect.resultset.getString("bookID");
+						title = Connect.resultset.getString("title");
+						author = Connect.resultset.getString("author");
+						year = Connect.resultset.getString("published");
+						link = Connect.resultset.getString("link");
 						String bookImg = "app/src/main/java/main/src/images/" + bookID + ".jpeg";
 						book = new ImageIcon(bookImg);
 						Image image = book.getImage();

@@ -181,7 +181,7 @@ public class AppFunctions extends LogPage {
         for (int i = 0; i < buttons.length; i++) {
             tmpBooks[i] = " ";
         }
-        String ownedQuery = "SELECT * FROM Library INNER JOIN Orders ON Orders.BookID = Library.BookID WHERE UserID = ? LIMIT ?,?";
+        String ownedQuery = "SELECT * FROM library INNER JOIN orders ON orders.bookID = library.bookID WHERE userID = ? LIMIT ?,?";
         Connect.statement = Connect.c.prepareStatement(ownedQuery);
         Connect.statement.setString(1, userID);
         Connect.statement.setInt(2, count);
@@ -189,8 +189,8 @@ public class AppFunctions extends LogPage {
         Connect.resultset = Connect.statement.executeQuery();
         for (int i = 0; i < buttons.length; i++, count++) {
             if (Connect.resultset.next()) {
-                tmpBooks[i] = Connect.resultset.getString("Title");
-                bookID = Connect.resultset.getString("BookID");
+                tmpBooks[i] = Connect.resultset.getString("title");
+                bookID = Connect.resultset.getString("bookID");
                 String bookImg = "app/src/main/java/main/src/images/" + bookID + ".jpeg";
                 book = new ImageIcon(bookImg);
                 Image image = book.getImage();
@@ -213,7 +213,7 @@ public class AppFunctions extends LogPage {
      */
     void getLink() {
         try {
-            String ownedQuery = "SELECT FROM Library INNER JOIN Orders ON Orders.BookID = Library.BookID WHERE UserID = ? LIMIT ?,?";
+            String ownedQuery = "SELECT FROM library INNER JOIN orders ON orders.bookID = library.bookID WHERE userID = ? LIMIT ?,?";
             Connect.statement = Connect.c.prepareStatement(ownedQuery);
             Connect.statement.setString(1, userID);
         } catch (Exception e1) {
