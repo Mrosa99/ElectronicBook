@@ -6,10 +6,18 @@ The E-Book App is a user-friendly platform designed for book enthusiasts to brow
 
 ## Features
 
-- **User Registration and Authentication**: Secure user accounts with username and hashed password storage.
-- **Library Management**: A comprehensive collection of books with details including title, author, publication year, price, and direct links for access.
-- **Order Placement**: Users can purchase books, with order details recorded for future reference.
-- **Data Security**: Passwords are stored using SHA-256 hashing for enhanced security.
+- **User Registration and Authentication**:
+  - Secure user accounts with username and hashed password storage.
+- **Library Management**:
+  - A comprehensive collection of books with details including title, author, publication year, price, and direct links for access.
+- **Order Placement**:
+  - Users can purchase books, with order details recorded for future reference.
+- **Data Security**:
+  - Passwords are stored using SHA-256 hashing, ensuring that the application never stores actual passwords. During login, the entered password is hashed and compared to the stored hash for verification, enhancing security against data breaches.
+- **User Account Management**:
+  - Users can change their username and password securely. The application prompts for confirmation before making any changes, ensuring that accidental alterations are minimized. After confirming the change, users receive feedback on the status of their request (e.g., "Username Changed" or "Password Changed").
+- **Account Deletion**:
+  - Users have the ability to delete their accounts through a simple confirmation process. Once the deletion is confirmed, the account is permanently removed from the database, and users are notified of the successful action with a message stating "Account Deleted". This feature enhances user control over their data within the application.
 
 ## Technologies Used
 
@@ -29,7 +37,6 @@ To get started with the E-Book App, follow these steps:
 
    - Import the provided MySQL scripts into your database management system to create the necessary tables and populate them with sample data.
    - For more step by step instructions follow this link: https://www.youtube.com/watch?v=u96rVINbAUI&ab_channel=WebDevSimplified (WorkBench not required)
-   - For written steps go to the "How to install MySQL" section below.
 
 3. **Configure Database Connection:**
 
@@ -37,7 +44,10 @@ To get started with the E-Book App, follow these steps:
 
 4. **Run the Application:**
 
+   - Run the mysql_query.sql on the active connection on the database.
    - Use your IDE or command line to run the application(AppMain.java). Maven will handle the build process automatically.
 
 5. **Access the App:**
    - Use one of the sample user data or create your own account to log in and browse the application.
+
+![Database ERD](app/src/main/java/main/src/images/ERD.pdf)
