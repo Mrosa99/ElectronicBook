@@ -104,19 +104,19 @@ public class BookDets extends BookStore {
             popoutFrame.dispose();
         } else if (e.getSource() == popButtons[1]) {
             try {
-                String checkPurchase = "Select * from Orders where UserID = '" + userID + "' and BookID = '" + bookID
+                String checkPurchase = "Select * from Orders where userID = '" + userID + "' and BookID = '" + bookID
                         + "'";
                 Connect.statement = Connect.c.prepareStatement(checkPurchase);
                 Connect.resultset = Connect.statement.executeQuery(checkPurchase);
                 if (Connect.resultset.next()) {
-                    Purchase_Date = Connect.resultset.getString("OrderDate");
+                    Purchase_Date = Connect.resultset.getString("purchaseDate");
                     popLabel.setText(
                             "<HTML><Center>Book Already purchased on: <BR>" + Purchase_Date + "</Center><HTML>");
                     removeButtons(popBPanel, popButtons);
                     popBPanel.add(close);
                 } else {
                     java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
-                    String purchase_query = "INSERT INTO Orders(BookID, UserID, OrderDate) VALUES (?, ?, ?)";
+                    String purchase_query = "INSERT INTO Orders(bookID, userID, purchaseDate) VALUES (?, ?, ?)";
                     Connect.statement = Connect.c.prepareStatement(purchase_query);
                     Connect.statement.setString(1, bookID);
                     Connect.statement.setString(2, userID);

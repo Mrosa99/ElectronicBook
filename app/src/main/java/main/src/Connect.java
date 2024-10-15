@@ -40,7 +40,7 @@ public class Connect extends LogPage {
 		statement.setString(2, password);
 		resultset = statement.executeQuery();
 		if (resultset.next()) {
-			userID = resultset.getString("UserID");
+			userID = resultset.getString("userID");
 			LoginFrame.dispose();
 			MainFrames mainframe = new MainFrames();
 			mainframe.MainAppFrames();
@@ -52,7 +52,7 @@ public class Connect extends LogPage {
 
 	/** Allows for first time user to create Account to use application */
 	public void Signup() throws SQLException {
-		String Signup_Query = "Select Username from Users where binary username=? ";
+		String Signup_Query = "Select username from users where binary username=? ";
 		statement = c.prepareStatement(Signup_Query);
 		statement.setString(1, username);
 		resultset = statement.executeQuery();
@@ -64,7 +64,7 @@ public class Connect extends LogPage {
 					JOptionPane.PLAIN_MESSAGE);
 		} else {
 			/** Prevents SQL Injection during the Login */
-			String SignUp_Update = "INSERT INTO Users(username, password) VALUES (?, ?)";
+			String SignUp_Update = "INSERT INTO users(username, password) VALUES (?, SHA2(?, 256))";
 			statement = c.prepareStatement(SignUp_Update);
 			statement.setString(1, username);
 			statement.setString(2, password);
