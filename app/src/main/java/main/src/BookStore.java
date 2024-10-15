@@ -37,7 +37,8 @@ public class BookStore extends MainFrames {
     }
 
     void getStoreCount() throws SQLException {
-        String maxquery = "select COUNT(*) from Library";
+
+        String maxquery = "SELECT COUNT(*) from library";
         Connect.resultset = Connect.statement.executeQuery(maxquery);
         if (Connect.resultset.next()) {
             max = Connect.resultset.getInt(1);
@@ -89,16 +90,16 @@ public class BookStore extends MainFrames {
                 removeButtons(Center_Panel, Available_Books);
                 removeButtons(Bottom_Panel, Directional_Buttons);
                 try {
-                    Connect.query = "select * from Library where Title = ?";
+                    Connect.query = "SELECT * FROM library where title = ?";
                     Connect.statement = Connect.c.prepareStatement(Connect.query);
                     Connect.statement.setString(1, Available_Books[i].getText());
                     Connect.resultset = Connect.statement.executeQuery();
                     if (Connect.resultset.next()) {
-                        bookID = Connect.resultset.getString("BookID");
-                        title = Connect.resultset.getString("Title");
-                        author = Connect.resultset.getString("Author");
-                        year = Connect.resultset.getString("Published");
-                        price = Connect.resultset.getString("Price");
+                        bookID = Connect.resultset.getString("bookID");
+                        title = Connect.resultset.getString("title");
+                        author = Connect.resultset.getString("author");
+                        year = Connect.resultset.getString("published");
+                        price = Connect.resultset.getString("price");
                         String bookImg = "app/src/main/java/main/src/images/" + bookID + ".jpeg";
                         book = new ImageIcon(bookImg);
                         Image image = book.getImage();

@@ -143,12 +143,12 @@ public class AppFunctions extends LogPage {
         for (int i = 0; i < buttons.length; i++) {
             tmpBooks[i] = " ";
         }
-        String LibQuery = "SELECT * FROM Library limit " + count + "," + pgmax + "";
+        String LibQuery = "SELECT * FROM library limit " + count + "," + pgmax + "";
         Connect.resultset = Connect.statement.executeQuery(LibQuery);
         for (int i = 0; i < buttons.length; i++, count++) {
             if (Connect.resultset.next()) {
-                tmpBooks[i] = Connect.resultset.getString("Title");
-                bookID = Connect.resultset.getString("BookID");
+                tmpBooks[i] = Connect.resultset.getString("title");
+                bookID = Connect.resultset.getString("bookID");
                 String bookImg = "app/src/main/java/main/src/images/" + bookID + ".jpeg";
                 book = new ImageIcon(bookImg);
                 Image image = book.getImage();
@@ -181,7 +181,7 @@ public class AppFunctions extends LogPage {
         for (int i = 0; i < buttons.length; i++) {
             tmpBooks[i] = " ";
         }
-        String ownedQuery = "SELECT * FROM Library INNER JOIN Orders ON Orders.BookID = Library.BookID WHERE UserID = ? LIMIT ?,?";
+        String ownedQuery = "SELECT * FROM library INNER JOIN orders ON orders.bookID = library.bookID WHERE userID = ? LIMIT ?,?";
         Connect.statement = Connect.c.prepareStatement(ownedQuery);
         Connect.statement.setString(1, userID);
         Connect.statement.setInt(2, count);
@@ -189,8 +189,8 @@ public class AppFunctions extends LogPage {
         Connect.resultset = Connect.statement.executeQuery();
         for (int i = 0; i < buttons.length; i++, count++) {
             if (Connect.resultset.next()) {
-                tmpBooks[i] = Connect.resultset.getString("Title");
-                bookID = Connect.resultset.getString("BookID");
+                tmpBooks[i] = Connect.resultset.getString("title");
+                bookID = Connect.resultset.getString("bookID");
                 String bookImg = "app/src/main/java/main/src/images/" + bookID + ".jpeg";
                 book = new ImageIcon(bookImg);
                 Image image = book.getImage();
@@ -213,7 +213,7 @@ public class AppFunctions extends LogPage {
      */
     void getLink() {
         try {
-            String ownedQuery = "SELECT  FROM Library INNER JOIN Orders ON Orders.BookID = Library.BookID WHERE UserID = ? LIMIT ?,?";
+            String ownedQuery = "SELECT FROM library INNER JOIN orders ON orders.bookID = library.bookID WHERE userID = ? LIMIT ?,?";
             Connect.statement = Connect.c.prepareStatement(ownedQuery);
             Connect.statement.setString(1, userID);
         } catch (Exception e1) {
@@ -261,7 +261,7 @@ public class AppFunctions extends LogPage {
      */
     public String change(String change, String current, JLabel text, JLabel msg, String word) throws SQLException {
         try {
-            Connect.query = "Select UserID from Users where binary " + word + "=?";
+            Connect.query = "Select userID from users where binary " + word + "=?";
             Connect.statement = Connect.c.prepareStatement(Connect.query);
             Connect.statement.setString(1, change);
             Connect.resultset = Connect.statement.executeQuery();
@@ -277,13 +277,27 @@ public class AppFunctions extends LogPage {
                     text.setText("Please try again:");
                 }
             } else {
-                Connect.query = "UPDATE Users SET " + word + " = '" + change + "' WHERE " + word + "= '" + current
-                        + "'";
-                Connect.statement = Connect.c.prepareStatement(Connect.query);
-                Connect.statement.executeUpdate();
-                msg.setText(word + " Changed");
-                text.setText("<HTML><CENTER>Username successfully changed to: <BR>" + change + "<CENTER><HTML>");
-                current = change;
+                if (word == "Username") {
+                    Connect.query = "UPDATE users SET " + word + " = '" + change + "' WHERE " + word + "= '" + current
+                            + "'";
+                    Connect.statement = Connect.c.prepareStatement(Connect.query);
+                    Connect.statement.executeUpdate();
+                    msg.setText(word + " Changed");
+                    text.setText("<HTML><CENTER>Username successfully changed to: <BR>" + change + "<CENTER><HTML>");
+                    current = change;
+                }
+                if (word == "Password") {
+                    Connect.query = "UPDATE users SET " + word + " = SHA2('" + change + "',256) WHERE " + word
+                            + " = SHA2('"
+                            + current
+                            + "',256)";
+                    System.out.println(Connect.query);
+                    Connect.statement = Connect.c.prepareStatement(Connect.query);
+                    Connect.statement.executeUpdate();
+                    msg.setText(word + " Changed");
+                    text.setText("<HTML><CENTER>Username successfully changed to: <BR>" + change + "<CENTER><HTML>");
+                    current = change;
+                }
             }
         } catch (SQLException e1) {
             e1.printStackTrace();
