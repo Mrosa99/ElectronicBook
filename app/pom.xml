@@ -12,15 +12,5 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
     </properties>
-
-      <dependencies>
-
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-jar</artifactId>
-      <version>9.2.0</version>
-    </dependency>
-
-  </dependencies>
    
 </project>
